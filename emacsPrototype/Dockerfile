@@ -6,5 +6,9 @@ RUN export http_proxy=$HTTP_PROXY
 
 RUN apt-get update
 RUN apt-get install -y emacs
-RUN mkdir /fs
+##RUN mkdir /fs
+##RUN cd /fs
+
+## This will have more conventient properties
+WORKDIR "/fs"
 

@@ -9,3 +9,9 @@ docker run -ti -v  /home/mcarl7/Personal/DockerTests:/fs emacs emacs -nw /fs/foo
 ## or more generally
 docker run -ti -v  `pwd`:/fs emacs emacs -nw /fs/foo.txt
 
+
+## and after modifications to run more generally
+docker run -ti -v `pwd`:/fs emacs
+emacs -nw foo.txt
+
+

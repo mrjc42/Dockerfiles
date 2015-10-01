@@ -1,0 +1,11 @@
+## To build:
+docker build -t emacs .
+
+## To run:
+docker run -ti emacs emacs -nw
+
+## To run with the user dir (you know to actually run a file)
+docker run -ti -v  /home/mcarl7/Personal/DockerTests:/fs emacs emacs -nw /fs/foo.txt
+## or more generally
+docker run -ti -v  `pwd`:/fs emacs emacs -nw /fs/foo.txt
+

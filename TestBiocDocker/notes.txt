@@ -9,3 +9,12 @@ setwd('scratch')
 .libPaths(c('/myLib',.libPaths()))
 
 
+## Here is a command to launch it with RStudio (the paths are different though):
+docker run -p 8787:8787 -v `pwd`:/scratch -v /home/mcarl7/Personal/DockerTests/Dockerfiles/TestBiocDocker/myLib:/myLib bioconductor/devel_base
+
+## Then you can access it like this:
+http://sideswiper:8787
+
+## And since Rstudio thinks that the home dir needs to always be this: "/home/rstudio"
+docker run -p 8787:8787 -v `pwd`:/home/rstudio -v /home/mcarl7/Personal/DockerTests/Dockerfiles/TestBiocDocker/myLib:/usr/local/lib/R/site-library bioconductor/devel_base
+

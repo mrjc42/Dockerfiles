@@ -1,0 +1,11 @@
+## This command will launch the devel base version of R and mount the working dir as '/scratch'. But the user needs to still setwd() to that space.
+docker run -ti -v `pwd`:/scratch bioconductor/devel_base R
+
+## Here is a more recent command that gets me access to more than one place
+docker run -ti -v `pwd`:/scratch -v /home/mcarl7/Personal/DockerTests/Dockerfiles/TestBiocDocker/myLib:/myLib bioconductor/devel_base R
+## Then from R I have to do this
+setwd('scratch')
+## And this to set up the library path:
+.libPaths(c('/myLib',.libPaths()))
+
+

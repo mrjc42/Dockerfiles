@@ -18,3 +18,6 @@ http://sideswiper:8787
 ## And since Rstudio thinks that the home dir needs to always be this: "/home/rstudio"
 docker run -p 8787:8787 -v `pwd`:/home/rstudio -v /home/mcarl7/Personal/DockerTests/Dockerfiles/TestBiocDocker/myLib:/usr/local/lib/R/site-library bioconductor/devel_base
 
+
+## And here is the command I will use so that I can start working on class materials (launch it from: /home/mcarl7/Personal/Courses/SCRICompBioCourses)
+docker run -p 8787:8787 -v `pwd`:/home/rstudio -v /home/mcarl7/Personal/Courses/SCRICompBioCourses/myLib:/usr/local/lib/R/site-library bioconductor/devel_base

@@ -20,4 +20,13 @@ docker run -p 8787:8787 -v `pwd`:/home/rstudio -v /home/mcarl7/Personal/DockerTe
 
 
 ## And here is the command I will use so that I can start working on class materials (launch it from: /home/mcarl7/Personal/Courses/SCRICompBioCourses)
-docker run -p 8787:8787 -v `pwd`:/home/rstudio -v /home/mcarl7/Personal/Courses/SCRICompBioCourses/myLib:/usr/local/lib/R/site-library bioconductor/devel_base
+docker run -p 8787:8787 -v /home/mcarl7/Personal/RStudioSpace/scratchSpace:/home/rstudio -v /home/mcarl7/Personal/RStudioSpace/myLib:/usr/local/lib/R/site-library bioconductor/devel_base
+
+
+## But that command will ALSO cause issues since it will effectively REPLACE an important library (one that has BiocInstaller).  So actually I need to do it like this:
+docker run -p 8787:8787 -v /home/mcarl7/Personal/RStudioSpace/scratchSpace:/home/rstudio -v /home/mcarl7/Personal/RStudioSpace/myLib:/myLib bioconductor/devel_base
+
+## And then follow up with this (if package installation is needed):
+.libPaths(c('/myLib',.libPaths()))
+## or better yet, make a new dockerfile to wrap that command into a single image (so it's always ready to go)
+

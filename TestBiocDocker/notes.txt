@@ -30,3 +30,8 @@ docker run -p 8787:8787 -v /home/mcarl7/Personal/RStudioSpace/scratchSpace:/home
 .libPaths(c('/myLib',.libPaths()))
 ## or better yet, make a new dockerfile to wrap that command into a single image (so it's always ready to go)
 
+
+## need more testing, but I think that this pattern should let me launch as many as I need.. (this does another one on 8788)
+docker run -p 8788:8787 -v /home/mcarl7/Personal/RStudioSpace/scratchSpace:/home/rstudio -v /home/mcarl7/Personal/RStudioSpace/myLib:/myLib bioconductor/devel_sequencing
+
+
